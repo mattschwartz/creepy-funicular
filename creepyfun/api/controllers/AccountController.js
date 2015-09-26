@@ -7,16 +7,27 @@
 
 module.exports = {
 	index: function (req, res) {
-		return res.view('account/index', { loginSession: null });
+		return res.view('account/index');
 	},
 
 	login: function (req, res) {
-		console.log('login')
-		return res.view('index');
+		return res.view('account/login');
 	},
+    
+    loginPost: function (req, res) {
+        var ret = req.params('returnUrl');
+        if (ret) {
+            return res.redirect(ret);
+        }
+        
+        return res.view('index');
+    },
 	
 	logout: function (req, res) {
-		console.log('logout')
-		return res.view('index');
-	}
+		return res.view('account/logout');
+	},
+    
+    logoutPost: function (req, res) {
+        return res.view('index')
+    }
 };

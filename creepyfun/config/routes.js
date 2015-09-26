@@ -44,8 +44,10 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   'GET /account': 'AccountController.index',
-  'GET /login': 'LoginController.index',
+  'GET /login': 'LoginController.login',
+  'POST /login': 'LoginController.loginPost',
   'GET /logout': 'LoginController.logout', 
+  'POST /logout': 'LoginController.logoutPost',
   
   'POST /search/:query': 'HomeController.search',
   'POST /upload': 'HomeController.upload',

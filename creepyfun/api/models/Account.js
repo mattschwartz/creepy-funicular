@@ -6,9 +6,22 @@
 */
 
 module.exports = {
-
-  attributes: {
-
-  }
+    attributes: {
+        firstName: {
+            type: 'string',
+            required: true
+        },
+        lastName: {
+            type: 'string',
+            required: true
+        },
+        passwordHash: {
+            type: 'string',
+            required: true
+        },
+        imgurToken: {
+            type: 'string'
+        }
+    }
 };
 

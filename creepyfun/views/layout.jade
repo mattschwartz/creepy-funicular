@@ -30,6 +30,16 @@ html
             li
               a(href='#') Gallery
           ul.nav.navbar-nav.navbar-right
+            if loginSession
+                li
+                    a(href='/account') #{loginSession.name}
+                li
+                    a(href='/logout') Logout
+            else
+                li
+                    a(href='/login') Login
+                li
+                    a(href='/register') Register
           
     // Body
     block content
