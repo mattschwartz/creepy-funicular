@@ -1,3 +1,122 @@
-.text-bold {
-	font-weight: bold;
-}
+.img-xxxs { width: 14px; height: 14px; }
+.img-xxs { width: 25px; height: 25px; }
+.img-xs { width: 32px; height: 32px; }
+.img-sm { width: 46px; height: 46px; }
+.img-md { width: 64px; height: 64px; }
+.img-md { width: 96px; height: 96px; }
+
+.mar { margin: 10px; }
+.mar-right { margin-right: 10px; }
+.mar-left { margin-left: 10px; }
+.mar-btm { margin-bottom: 10px; }
+.mar-top { margin-top: 10px; }
+
+.mar-sm { margin: 5px; }
+.mar-right-sm { margin-right: 5px; }
+.mar-left-sm { margin-left: 5px; }
+.mar-btm-sm { margin-bottom: 5px; }
+.mar-top-sm { margin-top: 5px; }
+
+.mar-md { margin: 15px; }
+.mar-right-md { margin-right: 15px; }
+.mar-left-md { margin-left: 15px; }
+.mar-btm-md { margin-bottom: 15px; }
+.mar-top-md { margin-top: 15px; }
+
+.mar-lg { margin: 20px; }
+.mar-right-lg { margin-right: 20px; }
+.mar-left-lg { margin-left: 20px; }
+.mar-btm-lg { margin-bottom: 20px; }
+.mar-top-lg { margin-top: 20px; }
+
+.mar-xlg { margin: 40px; }
+.mar-right-xlg { margin-right: 40px; }
+.mar-left-xlg { margin-left: 40px; }
+.mar-btm-xlg { margin-bottom: 40px; }
+.mar-top-xlg { margin-top: 40px; }
+
+.mar-xxl { margin: 60px; }
+.mar-right-xxl { margin-right: 60px; }
+.mar-left-xxl { margin-left: 60px; }
+.mar-btm-xxl { margin-bottom: 60px; }
+.mar-top-xxl { margin-top: 60px; }
+
+.mar-no { margin: 0; }
+.mar-right-no { margin-right: 0; }
+.mar-left-no { margin-left: 0; }
+.mar-btm-no { margin-bottom: 0; }
+.mar-top-no { margin-top: 0; }
+
+.pad { padding: 10px; }
+.pad-right { padding-right: 10px; }
+.pad-left { padding-left: 10px; }
+.pad-btm { padding-bottom: 10px; }
+.pad-top { padding-top: 10px; }
+
+.pad-top-only { padding: 10px 0 0 0; }
+.pad-right-only { padding: 0 10px 0 0; }
+.pad-left-only { padding: 0 0 0 10px; }
+.pad-btm-only { padding: 0 0 10px 0; }
+
+.pad-no { padding: 0; }
+.pad-right-no { padding-right: 0; }
+.pad-left-no { padding-left: 0; }
+.pad-btm-no { padding-bottom: 0; }
+.pad-top-no { padding-top: 0; }
+
+.pad-md { padding: 15px; }
+.pad-right-md { padding-right: 15px; }
+.pad-left-md { padding-left: 15px; }
+.pad-btm-md { padding-bottom: 15px; }
+.pad-top-md { padding-top: 15px; }
+
+.pad-lg { padding: 20px; }
+.pad-right-lg { padding-right: 20px; }
+.pad-left-lg { padding-left: 20px; }
+.pad-btm-lg { padding-bottom: 20px; }
+.pad-top-lg { padding-top: 20px; }
+
+.pad-xlg { padding: 40px; }
+.pad-right-xlg { padding-right: 40px; }
+.pad-left-xlg { padding-left: 40px; }
+.pad-btm-xlg { padding-bottom: 40px; }
+.pad-top-xlg { padding-top: 40px; }
+
+.spacer-sm { height: 5px; clear: both; }
+.spacer-md { height: 10px; clear: both; }
+.spacer-lg { height: 20px; clear: both; }
+
+.noselect { -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+
+/* Backgrounds */
+.bg-purple { background-color: #986291; color: white; }
+.bg-purple-light { background-color: #A168AF; }
+
+.bg-success { background-color: #3c9a5f; color: white; }
+.bg-success-light { background-color: #d0e9c6; }
+
+.bg-warning { background-color: #ec971f; color: white; }
+.bg-warning-light { background-color: #fcf8e3; }
+
+.bg-danger { background-color: #f04124; color: white; }
+.bg-danger-light { background-color: #f2dede; }
+
+.bg-info { background-color: #5bc0de; color: white; }
+.bg-info-light { background-color: #d9edf7; }
+
+.widget-bg { position: absolute; top: 0; left: 0; min-width: 100%; min-height: 100%; }
+.widget-body { padding: 50px 15px 15px; position: relative; }
+.widget-img { position: absolute; width: 64px; height: 64px; left: 50%; margin-left: -32px; top: -32px; }
+.widget-header { padding: 15px 15px 50px 15px; min-height: 100px; position: relative; overflow: hidden; }
+
+.img-responsive { display: block; max-width: 100%; height: auto; }
+
+.modal-dialog-lg { width: 800px !important; }
+
+/* Font */
+.text-bold { font-weight: bold; }
+.text-italic { font-style: italic; }
+.text-underline { text-decoration: underline; }
+
+/* List */
+.nav.collapse, .nav.collapsing > li { padding-left: 20px; }

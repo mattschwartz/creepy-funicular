@@ -4,6 +4,7 @@ html
     link(rel='stylesheet', href='/styles/bootstrap.min.css')
     link(rel='stylesheet', href='/styles/helpers.css')
     link(rel='stylesheet', href='/styles/bootstrap-theme.min.css')
+    link(rel='stylesheet', href='/styles/creepy.css')
     block styles
     
   body
@@ -24,11 +25,11 @@ html
         #bs-example-navbar-collapse-2.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
-              a(href='#') Highest Rated
+              a(href='/top') Highest Rated
             li
-              a(href='#') Recently Uploaded
+              a(href='/recent') Recently Uploaded
             li
-              a(href='#') Gallery
+              a(href='/gallery') Gallery
           ul.nav.navbar-nav.navbar-right
             if loginSession
                 li
@@ -42,7 +43,8 @@ html
                     a(href='/register') Register
           
     // Body
-    block content
+    div.container
+        block content
 
   script(src='/js/jquery-1.11.3.min.js')
   script(src='/js/bootstrap.min.js')

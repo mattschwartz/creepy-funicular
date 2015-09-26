@@ -1,2 +1,44 @@
-div("col-xs-12")
-    p Hi there
+extends ../layout.jade
+
+block content
+    div.col-xs-12
+        h2 #{model.firstName} #{model.lastName}
+        hr
+        div.col-md-7.pad-left-no
+            h4 Upload history
+            if model.uploaded && model.uploaded.length > 0
+                table.table.table-condensed.table-striped
+                    thead
+                        tr
+                            th Image
+                            th Uploaded
+                    tbody
+                    for obj in model.uploaded
+                        tr
+                            td
+                                a(href='/terrors/#{obj.url}') #{obj.url}
+                            td= obj.uploaded
+            else
+                p You've not uploaded any images.
+        div.col-md-5.pad-right-no
+            div.panel.panel-success
+                div.panel-heading.text-center Edit
+                div.panel-body
+                    form
+                        div.form-group
+                            label First name
+                            input.form-control(type='text' placeholder='First name' value='#{model.firstName}')
+                        div.form-group
+                            label Last name
+                            input.form-control(type='text' placeholder='Last name' value='#{model.lastName}')
+                            hr
+                        div.form-group
+                            label Imgur Account
+                            if model.imgurAccount
+                                button.col-xs-12.mar-btm-md.btn.btn-danger(type='button') Remove Imgur Account
+                            else
+                                button.col-xs-12.mar-btm-md.btn.btn-info(type='button') Link Imgur Account
+                        div.form-group
+                            button.btn.btn-success.col-xs-12(type='submit') Save
+            
+            

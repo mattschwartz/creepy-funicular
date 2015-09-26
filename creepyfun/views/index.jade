@@ -1,4 +1,3 @@
-//- index.jade
 extends ./layout.jade
 
 block content
@@ -7,10 +6,17 @@ block content
         hr
         form(action='/upload' method='post' enctype='multipart/form-data')
             div.form-group
-                label Image
-                input(name='imageUploaded' type='file')
+                label Input Image
+                div.clear-fix
+                div.mar-btm-md
+                    span(id='ImageUploadLabel') No file selected 
+                    span.file-input.btn.btn-primary.btn-file Browse
+                        input(type='file')
             div.form-group
-                label Pattern to find
+                input.form-control(name='imageUrl' type='text' placeholder='http://www.example.com/image.jpg')
+                hr
+            div.form-group
+                label Pattern Guide
                 input(name='pattern' class='form-control' type='text')
             div.form-group
                 button(class="col-xs-12 btn btn-success" type="submit") Upload
