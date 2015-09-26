@@ -52,7 +52,8 @@ process.chdir(__dirname);
       rc = function () { return {}; };
     }
   }
-
+  
+  sails.use()
 
   // Start server
   sails.lift(rc('sails'));

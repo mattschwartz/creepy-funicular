@@ -1,0 +1,19 @@
+<% locals.scripts.html.push('/js/_home.js') %>
+
+<div class="col-xs-12 col-md-4 col-md-offset-4">
+	<h2>Upload Image</h2>
+	<hr />
+	<form action="/upload" method="post" enctype="multipart/form-data">
+		<div class="form-group">
+			<label>Image</label>
+			<input name="imageUploaded" class="" type="file" />
+		</div>
+		<div class="form-group">
+			<label>Pattern to find</label>
+			<input name="patternMatching" class="form-control" type="text" />
+		</div>
+		<div class="form-group">
+			<button class="col-xs-12 btn btn-success" type="submit">Upload</button>
+		</div>
+	</form>
+</div>
