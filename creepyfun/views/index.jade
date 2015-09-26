@@ -1,0 +1,19 @@
+//- index.jade
+extends ./layout.jade
+
+block content
+    div.col-xs-12.col-md-4.col-md-offset-4
+        h2 Upload Image
+        hr
+        form(action='/upload' method='post' enctype='multipart/form-data')
+            div.form-group
+                label Image
+                input(name='imageUploaded' type='file')
+            div.form-group
+                label Pattern to find
+                input(name='pattern' class='form-control' type='text')
+            div.form-group
+                button(class="col-xs-12 btn btn-success" type="submit") Upload
+                
+block scripts
+    script(src='/js/_home.js')
