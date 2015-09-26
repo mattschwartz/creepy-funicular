@@ -10,8 +10,12 @@ var deep = require('../../src/deepdream')
 
 module.exports = {
 	index: function (req, res) {
-		var js = ['hi mom']
-		return res.view('index', js);
+		var session = {
+			name: 'Matt Schwartz'
+		};
+		return res.view('index', {
+			loginSession: session
+		});
 	},
 
 	upload: function (req, res) {

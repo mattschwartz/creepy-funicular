@@ -33,7 +33,6 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': 'HomeController.index',
-  'POST /upload': 'HomeController.upload',
 
   /***************************************************************************
   *                                                                          *
@@ -44,6 +43,10 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-  'POST /search/:query': 'HomeController.search'
-
+  'GET /account': 'AccountController.index',
+  'GET /login': 'LoginController.index',
+  'GET /logout': 'LoginController.logout', 
+  
+  'POST /search/:query': 'HomeController.search',
+  'POST /upload': 'HomeController.upload',
 };
