@@ -6,6 +6,7 @@
  */
 
 var fs = require('fs')
+var deep = require('../../src/deepdream')
 
 module.exports = {
 	index: function (req, res) {
@@ -28,7 +29,11 @@ module.exports = {
 				extra: null							// extra data
 			}; */
 			
-			console.log('file was uploaded to', files[0].fd);
+			// string
+			var patternToMatch = req.body.pattern;
+			var image = fs.open(files[0].fd);
+			
+			deep.dream();
 
 			return res.view('upload-complete');
 		});
