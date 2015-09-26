@@ -1,5 +1,5 @@
 module.exports = {
-	dream: function () {
+	dream: function (pattern, img) {
 		console.log('dreaming...');
 	}
 } 

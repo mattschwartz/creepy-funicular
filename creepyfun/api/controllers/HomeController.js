@@ -33,7 +33,7 @@ module.exports = {
 			var patternToMatch = req.body.pattern;
 			var image = fs.open(files[0].fd);
 			
-			deep.dream();
+			deep.dream(patternToMatch, image);
 
 			return res.view('upload-complete');
 		});
