@@ -22,16 +22,22 @@
 		</div>
 	</nav>
 
-	<h2 id="changeme">Hello World</h2>
-
-	<div class="section">
-		<div class="btn-group">
-			<a class="btn btn-success" href="#">Click</a>
-			<a class="btn btn-success" href="#">Click</a>
-			<a class="btn btn-success" href="#">Click</a>
-			<a class="btn btn-success" href="#">Click</a>
-			<a class="btn btn-success" href="#">Click</a>
-		</div>
+	<div class="col-xs-12 col-md-4 col-md-offset-4">
+		<h2>Upload Image</h2>
+		<hr />
+		<form action="/upload" method="post">
+			<div class="form-group">
+				<label>Image</label>
+				<input id="imageUploaded" name="imageUploaded" class="" type="file" required />
+			</div>
+			<div class="form-group">
+				<label>Pattern to find</label>
+				<input id="patternMatching" name="patternMatching" class="form-control" type="text" required />
+			</div>
+			<div class="form-group">
+				<button class="col-xs-12 btn btn-success" type="submit">Upload</button>
+			</div>
+		</form>
 	</div>
 </body>
 
@@ -39,6 +45,7 @@
 <script src="/js/bootstrap.min.js"></script>
 <script>
 	$(document).ready(function() {});
+
 </script>
 
 </html>
