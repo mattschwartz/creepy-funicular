@@ -8,6 +8,48 @@
 var fs = require('fs');
 var deep = require('../../src/deepdream');
 var path = require('path');
+var image;
+var guide;
+
+var getImage = function (req, res, err) {
+    req.file('ImageUploadImageFile').upload({
+        dirname: '../../assets/images/uploads/'
+    }, function (_err, files) {
+        if (_err) {
+            return err(_err);
+        }
+
+        if (!files || !files[0]) {
+            return getGuide(req, res, err);
+        }
+
+        image = files[0].fd;
+        return getGuide(req, res, err);
+    })
+}
+
+var getGuide = function (req, res, err) {
+    req.file('PatternUploadImageFile').upload({
+        dirname: '../../assets/images/uploads/'
+    }, function (_err, files) {
+        if (_err) {
+            return err(_err);
+        }
+
+        if (!files || !files[0]) {
+            return final(res);
+        }
+
+        guide = files[0].fd;
+        return final(res);
+    });
+}
+
+var final = function (res) {
+    image = deep.dream(image, guide);
+
+    return res.redirect('dreams/' + path.basename(image));
+}
 
 module.exports = {
     index: function (req, res) {
@@ -20,37 +62,25 @@ module.exports = {
     },
 
     upload: function (req, res) {
-        var image;
-        var guide;
-        req.file('ImageUploadImageFile').upload({
-            dirname: '../../assets/images/uploads/'
-        }, function (err, files) {
-            if (err)
-                return res.serverError(err);
-                
-            image = files[0].fd;
-
-            req.file('PatternUploadImageFile').upload({
-                dirname: '../../assets/images/uploads/'
-            }, function (err, files) {
-                if (err)
-                    return res.serverError(err);
-                    
-                guide = files[0].fd;
-                
-                image = deep.dream(image, guide);
-                return res.redirect('dreams/' + path.basename(image));
-            });
+        getImage(req, res, function (e) {
+            console.log('error', e)
+            return res.view('index', {
+                error: e
+            })
         });
     },
 
     search: function (req, res) {
         return res.view('search');
     },
-    
+
     dream: function (req, res) {
         return res.view('dreams', {
             input: req.param('id')
         });
+    },
+
+    dreamPost: function (req, res) {
+        console.log('req', req);
     }
 };
