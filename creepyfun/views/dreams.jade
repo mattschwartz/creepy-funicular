@@ -4,10 +4,26 @@ block content
     h2.text-center Dream Complete
     img.dream(src='../images/uploads/#{input}')
     - var shareUrl = 'http://www.localhost:1337/' + input;
+    - var model = { thumbsUp: 900, thumbsDown: 25000 };
     
     div.mar-btm-lg
     
-    div.text-center
+    .text-center
+        .btn-group.col-xs-12.col-md-4.col-md-offset-4
+            button.col-xs-6.btn.btn-danger(id='DislikeButton' type='button')
+                i.fa.fa-thumbs-down
+                span.text-left  #{model.thumbsDown}
+                    br
+                    |I'm not crazy about this
+            button.col-xs-6.btn.btn-success(id='LikeButton' type='button')
+                i.fa.fa-thumbs-up
+                span.text-left  #{model.thumbsUp}
+                    br
+                    |I like this
+    
+    div.mar-btm-lg
+    
+    div.text-center.pad-top-lg
         div.col-xs-12.col-md-4.col-md-offset-4
             div.form-group.text-left
                 label.control-label Direct link
