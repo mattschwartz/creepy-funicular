@@ -51,4 +51,5 @@ module.exports.routes = {
   
   'POST /search/:query': 'HomeController.search',
   'POST /upload': 'HomeController.upload',
+  'GET /dreams/:id': 'HomeController.dream'
 };

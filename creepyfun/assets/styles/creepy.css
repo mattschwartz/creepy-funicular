@@ -10,6 +10,12 @@
     color: white;
 }
 
+.dream {
+    max-height: 1024px;
+    margin: auto auto; 
+    display: block;
+}
+
 .btn-file {
     position: relative;
     overflow: hidden;

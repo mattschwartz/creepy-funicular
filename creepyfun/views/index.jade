@@ -1,25 +1,38 @@
 extends ./layout.jade
 
 block content
-    div.col-xs-12.col-md-4.col-md-offset-4
-        h2 Upload Image
+    
+    div.col-xs-12.col-md-8.col-md-offset-2
+        h1.text-center Let's Dream
         hr
         form(action='/upload' method='post' enctype='multipart/form-data')
-            div.form-group
-                label Input Image
+            div.form-group.col-md-6.pad-left-no
+                h4 Input Image
+                hr
                 div.clear-fix
+                label Upload
                 div.mar-btm-md
                     span(id='ImageUploadLabel') No file selected 
-                    span.file-input.btn.btn-primary.btn-file Browse
-                        input(type='file')
-            div.form-group
-                input.form-control(name='imageUrl' type='text' placeholder='http://www.example.com/image.jpg')
+                    span.file-input.btn.btn-primary.btn-file(id='ImageUpload') Browse
+                        input(name='ImageUploadImageFile' type='file')
+                div.form-group
+                    label Or Image Url
+                    input.form-control(name='inputImageUrl' type='text' placeholder='http://www.example.com/image.jpg')
+                    
+            div.form-group.col-md-6.pad-right-no
+                h4 Image Guide
                 hr
+                div.clear-fix
+                label Upload
+                div.mar-btm-md
+                    span(id='PatternUploadLabel') No file selected 
+                    span.file-input.btn.btn-primary.btn-file(id='PatternUpload') Browse
+                        input(name='PatternUploadImageFile' type='file')
+                div.form-group
+                    label Or Image Url
+                    input.form-control(name='patternImageUrl' type='text' placeholder='http://www.example.com/image.jpg')
             div.form-group
-                label Pattern Guide
-                input(name='pattern' class='form-control' type='text')
-            div.form-group
-                button(class="col-xs-12 btn btn-success" type="submit") Upload
+                button.btn.btn-success.col-xs-6.col-xs-offset-3(type="submit") Dream
                 
 block scripts
     script(src='/js/_home.js')

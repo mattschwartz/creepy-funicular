@@ -5,47 +5,52 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
-var fs = require('fs')
-var deep = require('../../src/deepdream')
+var fs = require('fs');
+var deep = require('../../src/deepdream');
+var path = require('path');
 
 module.exports = {
-	index: function (req, res) {
-		var session = {
-			name: 'Matt Schwartz'
-		};
-		return res.view('index', {
-			loginSession: session
-		});
-	},
+    index: function (req, res) {
+        var session = {
+            name: 'Matt Schwartz'
+        };
+        return res.view('index', {
+            loginSession: session
+        });
+    },
 
-	upload: function (req, res) {
-		req.file('imageUploaded').upload(function (err, files) {
-			if (err)
-				return res.serverError(err);
+    upload: function (req, res) {
+        var image;
+        var guide;
+        req.file('ImageUploadImageFile').upload({
+            dirname: '../../assets/images/uploads/'
+        }, function (err, files) {
+            if (err)
+                return res.serverError(err);
+                
+            image = files[0].fd;
 
-			// Files is an array and each index looks like:
-			/* var uploadedFileMetaData = {
-				fd: 'file-path',					// the local path to the file on the server
-				size: 0,							// the size of the image in bytes
-				type: 'mimetype',					// the mime type for the image like image/jpeg
-				filename: 'uploaded-filename.ext',	// the file name plus extension
-				status: 'bufferingOrWriting',		// a status
-				field: 'imageUploaded',				// the corresponding field on the form
-				extra: null							// extra data
-			}; */
-			
-			// string
-			var patternToMatch = req.body.pattern;
-			var image = fs.open(files[0].fd);
-			
-			deep.dream(patternToMatch, image);
+            req.file('PatternUploadImageFile').upload({
+                dirname: '../../assets/images/uploads/'
+            }, function (err, files) {
+                if (err)
+                    return res.serverError(err);
+                    
+                guide = files[0].fd;
+                
+                image = deep.dream(image, guide);
+                return res.redirect('dreams/' + path.basename(image));
+            });
+        });
+    },
 
-			return res.view('upload-complete');
-		});
-	},
-
-	search: function (req, res) {
-		console.log('Your query: ' + req.params("query"));
-		return res.view('search');
-	}
+    search: function (req, res) {
+        return res.view('search');
+    },
+    
+    dream: function (req, res) {
+        return res.view('dreams', {
+            input: req.param('id')
+        });
+    }
 };
