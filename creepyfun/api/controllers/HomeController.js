@@ -11,6 +11,13 @@ var path = require('path');
 var image;
 var guide;
 
+var guid = function () {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
+
 var getImage = function (req, res, err) {
     req.file('ImageUploadImageFile').upload({
         dirname: '../../assets/images/uploads/'
@@ -23,7 +30,8 @@ var getImage = function (req, res, err) {
             return getGuide(req, res, err);
         }
 
-        image = files[0].fd;
+        image = fs.renameSync(files[0].fd, 
+            path.join(path.dirname(files[0].fd), guid() + '.jpg'));
         return getGuide(req, res, err);
     })
 }
@@ -41,12 +49,14 @@ var getGuide = function (req, res, err) {
         }
 
         guide = files[0].fd;
+        guide = fs.renameSync(files[0].fd, 
+            path.join(path.dirname(files[0].fd), guid() + '.jpg'));
         return final(res);
     });
 }
 
 var final = function (res) {
-    image = deep.dream(image, guide);
+    // image = deep.dream(image, guide);
 
     return res.redirect('dreams/' + path.basename(image));
 }
