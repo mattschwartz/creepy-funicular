@@ -1,6 +1,39 @@
 include ./layout
 
-div.col-xs-12
+block content
     h2.text-center Dream Complete
     img.dream(src='../images/uploads/#{input}')
+    - var shareUrl = 'http://www.localhost:1337/' + input;
     
+    div.mar-btm-lg
+    
+    div.text-center
+        div.col-xs-12.col-md-4.col-md-offset-4
+            div.form-group.text-left
+                label.control-label Direct link
+                div.input-group
+                    span.input-group-addon
+                        i.fa.fa-code
+                    input.form-control(id='CopyDirectLink' type='text' disabled value='#{shareUrl}')
+                    span.input-group-btn
+                        button.btn.btn-default(id='CopyDirectLinkButton' type='button') Copy
+                        
+        div.btn-group(id='ShareButtons')
+            a.btn.btn-twitter(href='http://twitter.com/?status=Had a wicked sick dream last night #{shareUrl}' target='_blank' data-toggle='tooltip' data-placement='top' title='Share on Twitter')
+                i.fa.fa-twitter
+                span  Twitter
+            a.btn.btn-facebook(href='http://www.facebook.com/sharer/sharer.php?u=#{shareUrl}' target='_blank' data-toggle='tooltip' data-placement='top' title='Share on Facebook')
+                i.fa.fa-facebook
+                span  Facebook
+            a.btn.btn-googleplus(href='https://plus.google.com/share?url=#{shareUrl}' target='_blank' data-toggle='tooltip' data-placement='top' title='Share on Google+')
+                i.fa.fa-google-plus
+                span  Google+
+            a.btn.btn-stumbleupon(href='http://www.stumbleupon.com/submit?url=#{shareUrl}' target='_blank' data-toggle='tooltip' data-placement='top' title='Share on StumbleUpone')
+                i.fa.fa-stumbleupon
+                span  StumbleUpon
+            a.btn.btn-reddit(href='http://reddit.com/submit?url=#{shareUrl}' title="Share on Reddit" target="_blank")
+                i.fa.fa-reddit.fa-fw
+                span  Reddit
+
+block scripts
+    script(src='/js/_dreams.js')
